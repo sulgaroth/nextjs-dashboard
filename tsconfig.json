@@ -1,35 +1,81 @@
 {
   "compilerOptions": {
+    // TypeScript'in derleme sırasında hangi JavaScript sürümüne dönüştüreceğini belirtir.
     "target": "ES2017",
+
+    // Projede kullanılacak yerleşik tanımları belirtir.
+    // "dom": Tarayıcı ortamındaki DOM API'lerini kullanmak için.
+    // "dom.iterable": DOM nesneleri üzerinde iterasyon yapılabilmesi için.
+    // "esnext": En son ECMAScript özelliklerini kullanmak için.
     "lib": ["dom", "dom.iterable", "esnext"],
+
+    // TypeScript projesinde JavaScript dosyalarının da kullanılmasına izin verir.
     "allowJs": true,
+
+    // Bağımlılıkların tür tanımlarını kontrol etmeyi atlar. Derleme süresini hızlandırır.
     "skipLibCheck": true,
+
+    // TypeScript'in tüm sıkı tip denetim kurallarını etkinleştirir.
     "strict": true,
+
+    // Derleme sırasında JavaScript dosyalarının oluşturulmasını engeller.
     "noEmit": true,
+
+    // CommonJS modüllerini ES modülleriyle uyumlu hale getirir.
     "esModuleInterop": true,
+
+    // Modül sistemini belirtir. "esnext", en son ECMAScript modül standardını kullanır.
     "module": "esnext",
+
+    // Modül çözümleme stratejisini belirtir. "bundler", modern paketleyicilerle uyumludur.
     "moduleResolution": "bundler",
+
+    // JSON dosyalarının import edilmesine izin verir.
     "resolveJsonModule": true,
+
+    // Her dosyanın bağımsız bir modül olarak işlenmesini sağlar.
     "isolatedModules": true,
+
+    // JSX kodunun nasıl işleneceğini belirtir. "preserve", JSX'in olduğu gibi korunmasını sağlar.
     "jsx": "preserve",
+
+    // Artımlı derlemeyi etkinleştirir. Bu, derleme süresini hızlandırır.
     "incremental": true,
+
+    // TypeScript için ek eklentiler tanımlar. Burada Next.js için bir eklenti kullanılmış.
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    // Projedeki modüllerin çözümleme başlangıç noktasını belirtir.
     "baseUrl": ".",
+
+    // Kısayol yolları tanımlar. "@/..." ile proje kök dizininden itibaren dosyalara erişim sağlar.
     "paths": {
       "@/*": ["./*"]
     }
   },
   "include": [
+    // Next.js için tür tanımları.
     "next-env.d.ts",
+
+    // Tüm TypeScript dosyalarını dahil eder.
     "**/*.ts",
     "**/*.tsx",
+
+    // Next.js tarafından oluşturulan tür dosyalarını dahil eder.
     ".next/types/**/*.ts",
+
+    // Belirli bir dosyayı dahil eder.
     "app/lib/placeholder-data.ts",
+
+    // Belirli bir JavaScript dosyasını dahil eder.
     "scripts/seed.js"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    // Derleme sırasında "node_modules" dizinini hariç tutar.
+    "node_modules"
+  ]
 }
